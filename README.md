@@ -32,6 +32,6 @@ Time taken by Cython code: 0.0009586811065673828
 
 Time taken by C++ code: 0.0041156s
 
-![](D:\Google%20Drive\2.T\.HPC\C++%20vs%20Cython%20vs%20Python\1.6_Implicit_ODE_Solver\plots\Figure_1.png)
+![](1.6_Implicit_ODE_Solver\plots\Figure_1.png)
 
 ## Results and Discussion
