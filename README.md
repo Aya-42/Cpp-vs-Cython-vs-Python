@@ -21,8 +21,6 @@ Python Lyapunov calculation time: 0.379544734954834
 Cython bifurcation calculation time: 0.030930519104003906
 Cython Lyapunov calculation time: 0.0015032291412353516
 
-
-
 Bifurcation calculation time: 0.0111693 s
 Lyapunov calculation time: 0.0106237 s
 
@@ -34,6 +32,6 @@ Time taken by Cython code: 0.0009586811065673828
 
 Time taken by C++ code: 0.0041156s
 
-<img title="" src="file:///C:/Users/Aya%20Arbiat/AppData/Roaming/marktext/images/2024-04-17-17-20-27-Figure_1.png" alt="" data-align="center" width="839">
+![](D:\Google%20Drive\2.T\.HPC\C++%20vs%20Cython%20vs%20Python\1.6_Implicit_ODE_Solver\plots\Figure_1.png)
 
 ## Results and Discussion
