@@ -1,0 +1,66 @@
+{
+    "python.defaultInterpreterPath": "D:\\Anaconda\\python.exe",
+    "editor.fontSize": 16,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "comment",
+                "settings": {
+                    "foreground": "#219c44",
+                    "fontStyle": ""
+                }
+            }
+        ]
+    },
+    "C_Cpp.default.compilerPath": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**"
+    ],
+    "files.associations": {
+        "*.tpp": "cpp",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.testing.pytestEnabled": true
+    },
+    "ShortcutMenuBar.commentLine": true,
+    "ShortcutMenuBar.outdentLines": true,
+    "ShortcutMenuBar.redo": true,
+    "ShortcutMenuBar.save": true,
+    "ShortcutMenuBar.undo": true,
+    "ShortcutMenuBar.indentLines": true,
+    "ShortcutMenuBar.navigateBack": false,
+    "ShortcutMenuBar.navigateForward": false,
+    "ShortcutMenuBar.openFilesList": false,
+    "ShortcutMenuBar.beautify": false,
+    "ShortcutMenuBar.toggleTerminal": false,
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "jupyter.interactiveWindow.creationMode": "perFile",
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Shades of Purple",
+    "C_Cpp.files.exclude": {
+        "**/.vscode": true,
+        "**/.vs": true
+    },
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "remote.SSH.remotePlatform": {
+        "esc": "linux"
+    },
+    "git.ignoreLegacyWarning": true,
+    "explorer.confirmDelete": false,
+    "files.autoSave": "onWindowChange",
+    "workbench.layoutControl.enabled": false,
+    "git.openRepositoryInParentFolders": "never",
+    "workbench.colorCustomizations": {},
+    "window.zoomLevel": 1,
+    "workbench.iconTheme": "eq-material-theme-icons-light",
+    "editor.formatOnSave": true,
+    "editor.fontLigatures": false,
+    "workbench.settings.applyToAllProfiles": [],
+    "cmake.configureOnOpen": true,
+    "cmake.showOptionsMovedNotification": false,
+    "explorer.confirmDragAndDrop": false,
+}
