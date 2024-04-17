@@ -3,6 +3,7 @@
 #include <vector>
 #include <cmath>
 #include <chrono>
+#include <iomanip>
 #include "utils.h"
 
 std::vector<double> backward_euler(double y0, double t_end, double dt)
@@ -30,7 +31,7 @@ std::vector<double> analytical_solution(const std::vector<double> &times)
 
 int main()
 {
-    double y0 = 1.0, t_end = 16.0, dt = 0.001;
+    double y0 = 1.0, t_end = 16.0, dt = 0.0001;
 
     int num_points = static_cast<int>(t_end / dt) + 1;
     auto times = linspace(0, t_end, num_points);
