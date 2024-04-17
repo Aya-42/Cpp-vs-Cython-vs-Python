@@ -40,7 +40,7 @@ def save_to_csv(filename, header, data, subdirectory="data"):
 # Example usage
 y0 = 1
 t_end = 16
-dt = 0.1
+dt = 0.0001
 
 start_time = time.time()
 times, ys = backward_euler(y0, t_end, dt)
