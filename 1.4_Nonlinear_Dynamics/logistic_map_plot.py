@@ -14,7 +14,7 @@ def save_plot(fig, plot_name, directory="plots"):
 
 
 def plot_bifurcation(filename, show=True, save=False):
-    data = pd.read_csv(os.path.join("data", filename))
+    data = pd.read_csv(os.path.join("1.4_Nonlinear_Dynamics\data", filename))
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.plot(data['r'], data['x'], ',k', alpha=0.5)
     ax.set_title('Bifurcation Diagram')
@@ -27,7 +27,7 @@ def plot_bifurcation(filename, show=True, save=False):
 
 
 def plot_lyapunov(filename, show=True, save=False):
-    data = pd.read_csv(os.path.join("data", filename))
+    data = pd.read_csv(os.path.join("1.4_Nonlinear_Dynamics\data", filename))
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.plot(data['r'], data['x'], 'b-', alpha=0.7)
     ax.set_title('Lyapunov Exponents')

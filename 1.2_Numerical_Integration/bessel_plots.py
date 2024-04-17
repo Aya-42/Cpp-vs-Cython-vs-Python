@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 def plot_results(file_path, label):
-    df = pd.read_csv(os.path.join("data", file_path))
+    df = pd.read_csv(os.path.join("1.2_Numerical_Integration\data", file_path))
     plt.plot(df['x'], df['Trapezoid'], label=f'Trapezoid {label}')
     plt.plot(df['x'], df['Simpson'], label=f'Simpson {label}')
     plt.plot(df['x'], df['Actual J0'],
@@ -13,7 +13,7 @@ def plot_results(file_path, label):
 
 
 def plot_relative_errors(file_path, label):
-    df = pd.read_csv(os.path.join("data", file_path))
+    df = pd.read_csv(os.path.join("1.2_Numerical_Integration\data", file_path))
     plt.loglog(df['N'], df['Relative Error Trapezoid'],
                label=f'Trapezoid {label}', marker='o')
     plt.loglog(df['N'], df['Relative Error Simpson'],
