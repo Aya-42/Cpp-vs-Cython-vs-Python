@@ -33,9 +33,9 @@ runtime table
 
 
 
-## 1.1
-
 ## Problem 1.1: Inverse Transform Sampling
+
+---
 
 The objective of this problem is to demonstrate how to generate random numbers from a non-uniform distribution using inverse transform sampling. Our approach involves sampling from a Lorentzian distribution using the transformation $x = \frac{\Gamma}{\tan(\pi (u - 0.5))}$, where u is uniformly distributed between 0 and 1, and $\Gamma{} = 1$ represents the half-width at half-maximum (HWHM).
 
