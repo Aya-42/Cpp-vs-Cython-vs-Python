@@ -35,24 +35,7 @@ runtime table
 
 ## 1.1
 
-The goal of this problem is to demonstrate how to generate random numbers from a non-uniform distribution using inverse transform sampling. We aim to sample from a Lorentzian distribution using the transformation x=tan(πu)Γ​, where u is uniformly distributed between 0 and 1, and Γ=1 is the half-width at half-maximum (HWHM).
 
-
-
-After profiling, the function inverse transform is the most heavy, added type and function definitions, but still same order of speed, 
-
-Python Time Taken: 2.1876702308654785
-Cython Time taken: 1.7435081005096436
-
-C++ Time Taken: 1.41e-05s
-
-the figure is shown below, (describe the figure)
-
----
-
-Sure, let's refine the phrasing for your documentation of Problem 1.1:
-
----
 
 ### Problem 1.1: Inverse Transform Sampling
 
