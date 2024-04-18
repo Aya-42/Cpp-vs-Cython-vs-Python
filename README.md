@@ -33,8 +33,7 @@ This assignment compares computational techniques using Python, Cython, and C++ 
 
 The objective of this problem is to demonstrate how to generate random numbers from a non-uniform distribution using inverse transform sampling. Our approach involves sampling from a Lorentzian distribution using the transformation $x = \frac{\Gamma}{\tan(\pi (u - 0.5))}$, where u is uniformly distributed between 0 and 1, and $\Gamma{} = 1$ represents the half-width at half-maximum (HWHM). Figure (1) shows a histogram of sampled values against the theoretical Lorentzian PDF, visually validating our method's accuracy.
 
-<img title="" src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.1_Inverse_Transform_Sampling/plots/Figure_1.png" alt="" width="1053" data-align="center">
-
+![Alt text](1.1_Numerical_Integration/plots.png "Figure (1)")
 ### Runtimes
 
 Initial profiling pointed to the inverse transform function as the main bottleneck. Despite optimizations in Python and Cython, the biggest speed boost came from implementing the function in C++, achieving a dramatic change in the order of magnitude.
