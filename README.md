@@ -54,7 +54,9 @@ Figure (3) displays the results of approximating $J0​(x)$ using both the trape
 
 ![.](1.2_Numerical_Integration/plots/Figure_1.png "Figure (3)")
 
-In Figure (4), the log-log plot of relative errors showcases how the error diminishes with an increasing number of steps (N) for both the trapezoid and Simpson's methods in Python and Cython. From the slope of each curve, we can infer the convergence order. A steeper slope indicates a higher order of convergence and hence a more efficient approach to the true value. The plot suggests that the Simpson's method converges faster than the trapezoid method, evidenced by its flatter error curve, which indicates a lower error at equivalent step counts. ![.](1.2_Numerical_Integration/plots/Figure_2.png "Figure (4)")
+In Figure (4), the log-log plot of relative errors showcases how the error diminishes with an increasing number of steps (N) for both the trapezoid and Simpson's methods in Python and Cython. From the slope of each curve, we can infer the convergence order. A steeper slope indicates a higher order of convergence and hence a more efficient approach to the true value. The plot suggests that the Simpson's method converges faster than the trapezoid method, evidenced by its flatter error curve, which indicates a lower error at equivalent step counts. 
+
+![.](1.2_Numerical_Integration/plots/Figure_2.png "Figure (4)")
 
 
 ### Runtimes
@@ -69,11 +71,11 @@ Profiling showed integration to be the most time-consuming process, with error c
 
 The objective is to explore the chaotic behavior and bifurcation in the logistic map. The task involves iterating the logistic map for a range of values to observe the transition from stability to chaos, characterized by fixed points, periodic orbits, and chaotic regions. The bifurcation diagram (Figure 5) should visually present how, as the parameter ( r ) varies, the system transitions from order to chaos. As the parameter r increases, the logistic map evolves from steady-state fixed points to periodic cycles and then to chaotic behavior.
 
-[.](1.4_Nonlinear_Dynamics/plots/bifurcation_data_py_bifurcation.png "Figure (5)")
+![.](1.4_Nonlinear_Dynamics/plots/bifurcation_data_py_bifurcation.png "Figure (5)")
 
 Figure (6) shows a plot of the Lyapunov exponent across a range of ( r ) values. It moves from negative to positive at approximately 3.5, marking the onset of chaos.
 
-[.](1.4_Nonlinear_Dynamics/plots/lyapunov_data_py_lyapunov.png "Figure (6)")
+![.](1.4_Nonlinear_Dynamics/plots/lyapunov_data_py_lyapunov.png "Figure (6)")
 
 ### Runtimes
 
@@ -98,7 +100,7 @@ Profiling indicates that the iterative nature of the logistic map is the primary
 
 The aim is to implement and examine the backward Euler method as an implicit solver for the exponential decay ODE. This problem evaluates the method's stability and accuracy, particularly in handling stiff ODEs. The figure would show a curve depicting how the relative error in the numerical solution of an ODE at t=16 changes with decreasing time step sizes on a logarithmic scale. Smaller time steps, resulting from larger n values, should correlate with reduced error, indicating higher numerical accuracy. The slope of the curve on this log-log plot can reveal the order of accuracy of the backward Euler method: a steeper slope suggests a higher-order accuracy. As n increases, we'd expect the curve to flatten out as the method reaches its limit of precision given the machine's floating-point arithmetic.
 
-[.](1.6_Implicit_ODE_Solver/plots/Figure_1.png "Figure (7)")
+![.](1.6_Implicit_ODE_Solver/plots/Figure_1.png "Figure (7)")
 
 The time step (∆t) directly affects solution accuracy in the backward Euler method, with smaller steps yielding more precise results. Larger ∆t can compromise accuracy but maintains stability, making this method reliable for stiff ODEs where smaller steps are not computationally feasible.
 
