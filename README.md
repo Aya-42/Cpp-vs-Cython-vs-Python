@@ -32,8 +32,7 @@ This assignment compares computational techniques using Python, Cython, and C++ 
 ## 1.1: Inverse Transform Sampling
 
 The objective of this problem is to demonstrate how to generate random numbers from a non-uniform distribution using inverse transform sampling. Our approach involves sampling from a Lorentzian distribution using the transformation $x = \frac{\Gamma}{\tan(\pi (u - 0.5))}$, where u is uniformly distributed between 0 and 1, and $\Gamma{} = 1$ represents the half-width at half-maximum (HWHM). Figure (1) shows a histogram of sampled values against the theoretical Lorentzian PDF, visually validating our method's accuracy.
-
-![.](1.2_Numerical_Integration/plots.png "Figure (1)")
+![.](1.1_Inverse_Sampling_Transform/plots/Figure_1.png "Figure (1)")
 ### Runtimes
 
 Initial profiling pointed to the inverse transform function as the main bottleneck. Despite optimizations in Python and Cython, the biggest speed boost came from implementing the function in C++, achieving a dramatic change in the order of magnitude.
@@ -50,6 +49,7 @@ The objective here is to approximate the Bessel function $ J_0(x)$ through numer
 
 
 Figure (3) displays the results of approximating $J0​(x)$ using both the trapezoid and Simpson's rule across the domain $[0, 10]$, compared against values computed with standard library functions.
+
 ![.](1.2_Numerical_Integration/plots/Figure_1.png "Figure (3)")
 
 In Figure (4), the log-log plot of relative errors showcases how the error diminishes with an increasing number of steps (N) for both the trapezoid and Simpson's methods in Python and Cython. From the slope of each curve, we can infer the convergence order. A steeper slope indicates a higher order of convergence and hence a more efficient approach to the true value. The plot suggests that the Simpson's method converges faster than the trapezoid method, evidenced by its flatter error curve, which indicates a lower error at equivalent step counts. ![.](1.2_Numerical_Integration/plots/Figure_2.png "Figure (4)")
