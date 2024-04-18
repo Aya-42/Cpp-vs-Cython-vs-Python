@@ -46,12 +46,14 @@ Initial profiling pointed to the inverse transform function as the main bottlene
 
 The objective here is to approximate the Bessel function $ J_0(x)$ through numerical integration. We integrate the function $f(\theta) = \cos(x \sin(\theta))$ using the trapezoid and Simpson’s rule and compare the results against known values of $J_0(x)$. Shown in Figure (2) for different values of x.
 
-![.](1.2_Numerical_Integration/plots/Figure_1.png "Figure (1)")
+![.](1.2_Numerical_Integration/plots/Figure_3.png "Figure (2)")
 
 
-Figure (3) displays the results of approximating $J0​(x)$ using both the trapezoid and Simpson's rule across the domain $[0, 10]$, compared against values computed with standard library functions.<img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.2_Numerical_Integration/plots/Figure_1.png" title="" alt="" data-align="center">
+Figure (3) displays the results of approximating $J0​(x)$ using both the trapezoid and Simpson's rule across the domain $[0, 10]$, compared against values computed with standard library functions.
+![.](1.2_Numerical_Integration/plots/Figure_1.png "Figure (3)")
 
-In Figure (4), the log-log plot of relative errors showcases how the error diminishes with an increasing number of steps (N) for both the trapezoid and Simpson's methods in Python and Cython. From the slope of each curve, we can infer the convergence order. A steeper slope indicates a higher order of convergence and hence a more efficient approach to the true value. The plot suggests that the Simpson's method converges faster than the trapezoid method, evidenced by its flatter error curve, which indicates a lower error at equivalent step counts. <img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.2_Numerical_Integration/plots/Figure_2.png" title="" alt="" data-align="center">
+In Figure (4), the log-log plot of relative errors showcases how the error diminishes with an increasing number of steps (N) for both the trapezoid and Simpson's methods in Python and Cython. From the slope of each curve, we can infer the convergence order. A steeper slope indicates a higher order of convergence and hence a more efficient approach to the true value. The plot suggests that the Simpson's method converges faster than the trapezoid method, evidenced by its flatter error curve, which indicates a lower error at equivalent step counts. ![.](1.2_Numerical_Integration/plots/Figure_2.png "Figure (4)")
+
 
 ### Runtimes
 
