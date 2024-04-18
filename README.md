@@ -2,11 +2,13 @@
 
 ## Overview
 
+[GitHub - Aya-42/Cpp-vs-Cython-vs-Python](https://github.com/Aya-42/Cpp-vs-Cython-vs-Python)
+
 This assignment compares computational techniques using Python, Cython, and C++ across a series of numerical problems. The focus is on implementing efficient algorithms, enhancing understanding of different programming paradigms, and evaluating runtime performance.
 
 ## Environment Setup
 
-- **Python**: Version 3.8+, with libraries NumPy, matplotlib for computations and plotting. scipy for famous functions, pandas for plotting, csv to write data, panda to read it
+- **Python**: Version 3.8+, with libraries NumPy, matplotlib for computations and plotting. Scipy for infamous functions. csv to write data, pandas to read it
 - **Cython**: Setup with Python for performance enhancements. Use of Cython compiler for building optimized code.
 - **C++**: GCC compiler (version 9+) for C++17 standards. Use standard libraries only.
 
@@ -31,9 +33,9 @@ This assignment compares computational techniques using Python, Cython, and C++ 
 
 The objective of this problem is to demonstrate how to generate random numbers from a non-uniform distribution using inverse transform sampling. Our approach involves sampling from a Lorentzian distribution using the transformation $x = \frac{\Gamma}{\tan(\pi (u - 0.5))}$, where u is uniformly distributed between 0 and 1, and $\Gamma{} = 1$ represents the half-width at half-maximum (HWHM). Figure (1) shows a histogram of sampled values against the theoretical Lorentzian PDF, visually validating our method's accuracy.
 
-![](D:\Google%20Drive\2.T\.HPC\C++%20vs%20Cython%20vs%20Python\1.1_Inverse_Transform_Sampling\plots\Figure_1.png)
+<img title="" src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.1_Inverse_Transform_Sampling/plots/Figure_1.png" alt="" width="1053" data-align="center">
 
-### Runtime Comparison
+### Runtimes
 
 Initial profiling pointed to the inverse transform function as the main bottleneck. Despite optimizations in Python and Cython, the biggest speed boost came from implementing the function in C++, achieving a dramatic change in the order of magnitude.
 
@@ -53,9 +55,11 @@ In Figure (4), the log-log plot of relative errors showcases how the error dimin
 
 ### Runtimes
 
-Profiling revealed the integration functions as the most time-consuming, although the relative error function also somewhat slowed down the code. Type setting in Cython helped, but C++ provided the fastest computations.
+Profiling showed integration to be the most time-consuming process, with error computation also slowing things down. Cython was the quickest, likely due to its compiled nature and optimized numeric operations. C++ was slower, possibly due to less optimized code. An increase of performance in C++ is expected as we rely less and less on for loops and employ vectorization.
 
-- 
+- **Cython**: \(0.095\) sec - the fastest, benefits from both Python's ease and C's speed.
+- **C++**: \(0.148\) sec - slower, potentially from less efficient looping or lack of numerical optimizations.
+- **Python**: \(0.355\) sec - the slowest, hindered by its overhead as an interpreted language.
 
 ### Problem 1.4: Nonlinear Dynamics and Logistic Map
 
@@ -99,7 +103,3 @@ The computational load primarily comes from the iterative solver required in the
 - **Python**: \(0.0419\) seconds, slower due to interpreted nature.
 - **Cython**: \(0.00096\) seconds, achieving significant performance gains through C-level optimizations.
 - **C++**: \(0.00412\) seconds, faster than Python but surprisingly slower than Cython, possibly due to differences in compiler optimizations or overheads.
-
-## Results and Discussion
-
-challenges I faced, tools I used, goals for this assignment, my thinking
