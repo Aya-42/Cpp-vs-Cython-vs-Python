@@ -67,27 +67,30 @@ Figure (6) shows a plot of the Lyapunov exponent across a range of ( r ) values.
 
 <img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.4_Nonlinear_Dynamics/plots/lyapunov_data_cy_lyapunov.png" title="" alt="" data-align="center">
 
-
-
 ### Runtimes
 
-Profiling indicates that the iterative nature of the logistic map is the primary computational load. C++ outperforms Python and Cython in managing the large iteration counts required for observing chaotic behavior.
+Profiling indicates that the iterative nature of the logistic map is the primary computational load. Across implementations, the Cython code proved to be the most efficient, leveraging NumPy’s optimized libraries, while the C++ implementation, lacking such optimizations and reliant on explicit loops, did not achieve the same level of performance. An increase of performance in C++ is expected as we rely less and less on for loops and employ vectorization.
 
-- **Python**: sec, due to overhead in repeated function calls.
-- **Cython**:  sec, improved via static typing and compiled execution.
-- **C++**:sec, significantly faster, benefiting from optimized loops and arithmetic operations.
+- **Python:**
+  
+  - Bifurcation calculation took (0.119) seconds, with the overhead attributed to the high-level language features.
+  
+  - Lyapunov exponent calculation was (0.380) seconds, slower due to the intensive floating-point operations and function call overheads.
 
-Python bifurcation calculation time: 0.1191098690032959
-Python Lyapunov calculation time: 0.379544734954834
-Cython bifurcation calculation time: 0.030930519104003906
-Cython Lyapunov calculation time: 0.0015032291412353516
+- **Cython**:
+  
+  - Bifurcation calculation time dropped to (0.031) seconds, showing improvement thanks to static typing and optimized number-crunching.
+  - Lyapunov exponent calculation was remarkably fast at (0.0015) seconds, demonstrating Cython's ability to close the gap with lower-level languages.
 
-Bifurcation calculation time: 0.0111693 s
-Lyapunov calculation time: 0.0106237 s
+- **C++**:
+  
+  - Bifurcation calculation completed in (0.011) seconds, and Lyapunov exponent calculation in (0.011) seconds, both benefitting from the highly efficient loops and arithmetic optimizations available in compiled C++ code., but not completely taking advantage of vectorization, and other optimization techniques, thus slower than Cython.
 
 ## 1.6: Implicit ODE Solver
 
-The aim is to implement and examine the backward Euler method as an implicit solver for the exponential decay ODE. This problem evaluates the method's stability and accuracy, particularly in handling stiff ODEs. <img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.6_Implicit_ODE_Solver/plots/Figure_1.png" title="" alt="" data-align="center">
+The aim is to implement and examine the backward Euler method as an implicit solver for the exponential decay ODE. This problem evaluates the method's stability and accuracy, particularly in handling stiff ODEs. The figure would show a curve depicting how the relative error in the numerical solution of an ODE at t=16 changes with decreasing time step sizes on a logarithmic scale. Smaller time steps, resulting from larger n values, should correlate with reduced error, indicating higher numerical accuracy. The slope of the curve on this log-log plot can reveal the order of accuracy of the backward Euler method: a steeper slope suggests a higher-order accuracy. As n increases, we'd expect the curve to flatten out as the method reaches its limit of precision given the machine's floating-point arithmetic.<img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.6_Implicit_ODE_Solver/plots/Figure_1.png" title="" alt="" data-align="center">
+
+The time step (∆t) directly affects solution accuracy in the backward Euler method, with smaller steps yielding more precise results. Larger ∆t can compromise accuracy but maintains stability, making this method reliable for stiff ODEs where smaller steps are not computationally feasible.
 
 ### Runtimes
 
