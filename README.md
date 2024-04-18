@@ -4,10 +4,6 @@
 
 This assignment compares computational techniques using Python, Cython, and C++ across a series of numerical problems. The focus is on implementing efficient algorithms, enhancing understanding of different programming paradigms, and evaluating runtime performance.
 
-runtime table
-
-
-
 ## Environment Setup
 
 - **Python**: Version 3.8+, with libraries NumPy, matplotlib for computations and plotting. scipy for famous functions, pandas for plotting, csv to write data, panda to read it
@@ -17,52 +13,69 @@ runtime table
 ### File Structure
 
 - **Repository Root**:
-  - `README.md`: Project overview and setup instructions.
-  - `requirements.txt`: List of Python dependencies.
-- **1.1_Inverse_Sampling_Transform**:
-  - `problem1.py`, `problem2.py`, ..., `problem6.py`: Python implementations.
-- **Cython**:
-  - `problem1.pyx`, `setup1.py`, ..., `problem6.pyx`, `setup6.py`: Cython files and setup scripts.
-- **C++**:
-  - `problem1.cpp`, ..., `problem6.cpp`: C++ source files for each problem.
-  - `Makefile`: Compilation instructions.
-  - `#include "utils.h"`
-- **Results**:
+  - `README.md`: Project overview
+  
+  - **1.n_Problem**:
+  
+  - `problem.py`, `plotting_script.py`: Python implementations.
+  
+  - `problem.pyx`, `setup.py`: Cython files and setup scripts.
+  
+  - `problem.cpp`: C++ source files for each problem.
+  - `utils.h`:  Common function implementations that are often reused
+  
   - `data/`: Output data files used for generating plots.
   - `plots/`: Generated plots in PNG or PDF format. 
 
+## 1.1: Inverse Transform Sampling
 
-
-## Problem 1.1: Inverse Transform Sampling
-
----
-
-The objective of this problem is to demonstrate how to generate random numbers from a non-uniform distribution using inverse transform sampling. Our approach involves sampling from a Lorentzian distribution using the transformation $x = \frac{\Gamma}{\tan(\pi (u - 0.5))}$, where u is uniformly distributed between 0 and 1, and $\Gamma{} = 1$ represents the half-width at half-maximum (HWHM).
-
-Initial profiling pointed to the inverse transform function as the main bottleneck. Despite optimizations in Python and Cython, the biggest speed boost came from implementing the function in C++, achieving a dramatic change in the order of magnitude. Figure (1) shows a histogram of sampled values against the theoretical Lorentzian PDF, visually validating our method's accuracy.
+The objective of this problem is to demonstrate how to generate random numbers from a non-uniform distribution using inverse transform sampling. Our approach involves sampling from a Lorentzian distribution using the transformation $x = \frac{\Gamma}{\tan(\pi (u - 0.5))}$, where u is uniformly distributed between 0 and 1, and $\Gamma{} = 1$ represents the half-width at half-maximum (HWHM). Figure (1) shows a histogram of sampled values against the theoretical Lorentzian PDF, visually validating our method's accuracy.
 
 ![](D:\Google%20Drive\2.T\.HPC\C++%20vs%20Cython%20vs%20Python\1.1_Inverse_Transform_Sampling\plots\Figure_1.png)
 
 ### Runtime Comparison
 
+Initial profiling pointed to the inverse transform function as the main bottleneck. Despite optimizations in Python and Cython, the biggest speed boost came from implementing the function in C++, achieving a dramatic change in the order of magnitude.
+
 - **Python**: (2.19) seconds.
 - **Cython**: (1.74) seconds, showing improved efficiency through compilation optimizations.
 - **C++**: (0.0000141) seconds, dramatically faster due to lower-level system access and optimized memory management, the implementation was vectorized and did not use for loops, which helped achieve this runtime.
 
-## 1.2
+## 1.2: Numerical Integration of Bessel Function
 
-Python execution time: 0.14697027206420898
-Cython execution time: 0.03648805618286133
-Python relative error calculation time: 0.009775400161743164
-Cython relative error calculation time: 0.0016863346099853516
+The objective here is to approximate the Bessel function $ J_0(x)$ through numerical integration. We integrate the function $f(\theta) = \cos(x \sin(\theta))$ using the trapezoid and Simpson’s rule and compare the results against known values of $J_0(x)$. Shown in Figure (2) for different values of x.
 
-![](D:\Google%20Drive\2.T\.HPC\C++%20vs%20Cython%20vs%20Python\1.2_Numerical_Integration\plots\Figure_1.png)
+<img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.2_Numerical_Integration/plots/Figure_3.png" title="" alt="" data-align="center">
 
-![](D:\Google%20Drive\2.T\.HPC\C++%20vs%20Cython%20vs%20Python\1.2_Numerical_Integration\plots\Figure_2.png)
+Figure (3) displays the results of approximating $J0​(x)$ using both the trapezoid and Simpson's rule across the domain $[0, 10]$, compared against values computed with standard library functions.<img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.2_Numerical_Integration/plots/Figure_1.png" title="" alt="" data-align="center">
 
-![](D:\Google%20Drive\2.T\.HPC\C++%20vs%20Cython%20vs%20Python\1.2_Numerical_Integration\plots\Figure_3.png)
+In Figure (4), the log-log plot of relative errors showcases how the error diminishes with an increasing number of steps (N) for both the trapezoid and Simpson's methods in Python and Cython. From the slope of each curve, we can infer the convergence order. A steeper slope indicates a higher order of convergence and hence a more efficient approach to the true value. The plot suggests that the Simpson's method converges faster than the trapezoid method, evidenced by its flatter error curve, which indicates a lower error at equivalent step counts. <img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.2_Numerical_Integration/plots/Figure_2.png" title="" alt="" data-align="center">
 
-## 1.4
+### Runtimes
+
+Profiling revealed the integration functions as the most time-consuming, although the relative error function also somewhat slowed down the code. Type setting in Cython helped, but C++ provided the fastest computations.
+
+- 
+
+### Problem 1.4: Nonlinear Dynamics and Logistic Map
+
+The objective is to explore the chaotic behavior and bifurcation in the logistic map. The task involves iterating the logistic map for a range of values to observe the transition from stability to chaos, characterized by fixed points, periodic orbits, and chaotic regions. The bifurcation diagram (Figure 5) should visually present how, as the parameter ( r ) varies, the system transitions from order to chaos. As the parameter r increases, the logistic map evolves from steady-state fixed points to periodic cycles and then to chaotic behavior.
+
+<img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.4_Nonlinear_Dynamics/plots/bifurcation_data_c_bifurcation.png" title="" alt="" data-align="center">
+
+Figure (6) shows a plot of the Lyapunov exponent across a range of ( r ) values. It moves from negative to positive at approximately 3.5, marking the onset of chaos.
+
+<img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.4_Nonlinear_Dynamics/plots/lyapunov_data_cy_lyapunov.png" title="" alt="" data-align="center">
+
+
+
+### Runtimes
+
+Profiling indicates that the iterative nature of the logistic map is the primary computational load. C++ outperforms Python and Cython in managing the large iteration counts required for observing chaotic behavior.
+
+- **Python**: sec, due to overhead in repeated function calls.
+- **Cython**:  sec, improved via static typing and compiled execution.
+- **C++**:sec, significantly faster, benefiting from optimized loops and arithmetic operations.
 
 Python bifurcation calculation time: 0.1191098690032959
 Python Lyapunov calculation time: 0.379544734954834
@@ -72,29 +85,17 @@ Cython Lyapunov calculation time: 0.0015032291412353516
 Bifurcation calculation time: 0.0111693 s
 Lyapunov calculation time: 0.0106237 s
 
+## 1.6: Implicit ODE Solver
 
+The aim is to implement and examine the backward Euler method as an implicit solver for the exponential decay ODE. This problem evaluates the method's stability and accuracy, particularly in handling stiff ODEs. <img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.6_Implicit_ODE_Solver/plots/Figure_1.png" title="" alt="" data-align="center">
 
-![](D:\Google%20Drive\2.T\.HPC\C++%20vs%20Cython%20vs%20Python\1.4_Nonlinear_Dynamics\plots\bifurcation_data_c_bifurcation.png)
+### Runtimes
 
-![](D:\Google%20Drive\2.T\.HPC\C++%20vs%20Cython%20vs%20Python\1.4_Nonlinear_Dynamics\plots\lyapunov_data_cy_lyapunov.png)
+The computational load primarily comes from the iterative solver required in the backward Euler method. Across implementations, the Cython code proved to be the most efficient, leveraging NumPy’s optimized libraries, while the C++ implementation, lacking such optimizations and reliant on explicit loops, did not achieve the same level of performance. An increase of performance in C++ is expected as we rely less and less on for loops and employ vectorization.
 
-## 1.6
-
-Time taken by Python code: 0.04189586639404297
-
-Time taken by Cython code: 0.0009586811065673828
-
-Time taken by C++ code: 0.0041156s
-
-![](D:\Google%20Drive\2.T\.HPC\C++%20vs%20Cython%20vs%20Python\1.6_Implicit_ODE_Solver\plots\Figure_1.png)
-
-
-
-## Runtime Analysis
-
-
-
-
+- **Python**: \(0.0419\) seconds, slower due to interpreted nature.
+- **Cython**: \(0.00096\) seconds, achieving significant performance gains through C-level optimizations.
+- **C++**: \(0.00412\) seconds, faster than Python but surprisingly slower than Cython, possibly due to differences in compiler optimizations or overheads.
 
 ## Results and Discussion
 
