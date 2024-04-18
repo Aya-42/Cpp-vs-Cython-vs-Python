@@ -33,7 +33,7 @@ This assignment compares computational techniques using Python, Cython, and C++ 
 
 The objective of this problem is to demonstrate how to generate random numbers from a non-uniform distribution using inverse transform sampling. Our approach involves sampling from a Lorentzian distribution using the transformation $x = \frac{\Gamma}{\tan(\pi (u - 0.5))}$, where u is uniformly distributed between 0 and 1, and $\Gamma{} = 1$ represents the half-width at half-maximum (HWHM). Figure (1) shows a histogram of sampled values against the theoretical Lorentzian PDF, visually validating our method's accuracy.
 
-![Alt text](1.1_Numerical_Integration/plots.png "Figure (1)")
+![.](1.2_Numerical_Integration/plots.png "Figure (1)")
 ### Runtimes
 
 Initial profiling pointed to the inverse transform function as the main bottleneck. Despite optimizations in Python and Cython, the biggest speed boost came from implementing the function in C++, achieving a dramatic change in the order of magnitude.
@@ -46,7 +46,8 @@ Initial profiling pointed to the inverse transform function as the main bottlene
 
 The objective here is to approximate the Bessel function $ J_0(x)$ through numerical integration. We integrate the function $f(\theta) = \cos(x \sin(\theta))$ using the trapezoid and Simpson’s rule and compare the results against known values of $J_0(x)$. Shown in Figure (2) for different values of x.
 
-<img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.2_Numerical_Integration/plots/Figure_3.png" title="" alt="" data-align="center">
+![.](1.2_Numerical_Integration/plots/Figure_1.png "Figure (1)")
+
 
 Figure (3) displays the results of approximating $J0​(x)$ using both the trapezoid and Simpson's rule across the domain $[0, 10]$, compared against values computed with standard library functions.<img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.2_Numerical_Integration/plots/Figure_1.png" title="" alt="" data-align="center">
 
