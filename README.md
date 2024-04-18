@@ -8,13 +8,13 @@ runtime table
 
 
 
-#### Environment Setup
+## Environment Setup
 
 - **Python**: Version 3.8+, with libraries NumPy, matplotlib for computations and plotting. scipy for famous functions, pandas for plotting, csv to write data, panda to read it
 - **Cython**: Setup with Python for performance enhancements. Use of Cython compiler for building optimized code.
 - **C++**: GCC compiler (version 9+) for C++17 standards. Use standard libraries only.
 
-#### File Structure
+### File Structure
 
 - **Repository Root**:
   - `README.md`: Project overview and setup instructions.
@@ -35,17 +35,15 @@ runtime table
 
 ## 1.1
 
+## Problem 1.1: Inverse Transform Sampling
 
-
-### Problem 1.1: Inverse Transform Sampling
-
-The objective of this problem is to demonstrate how to generate random numbers from a non-uniform distribution using inverse transform sampling. Our approach involves sampling from a Lorentzian distribution using the transformation \$ x = \frac{\Gamma}{\tan(\pi (u - 0.5))}$, where \(u) is uniformly distributed between 0 and 1, and $\Gamma{} = 1$ represents the half-width at half-maximum (HWHM).
+The objective of this problem is to demonstrate how to generate random numbers from a non-uniform distribution using inverse transform sampling. Our approach involves sampling from a Lorentzian distribution using the transformation $x = \frac{\Gamma}{\tan(\pi (u - 0.5))}$, where u is uniformly distributed between 0 and 1, and $\Gamma{} = 1$ represents the half-width at half-maximum (HWHM).
 
 Initial profiling pointed to the inverse transform function as the main bottleneck. Despite optimizations in Python and Cython, the biggest speed boost came from implementing the function in C++, achieving a dramatic change in the order of magnitude. Figure (1) shows a histogram of sampled values against the theoretical Lorentzian PDF, visually validating our method's accuracy.
 
 ![](D:\Google%20Drive\2.T\.HPC\C++%20vs%20Cython%20vs%20Python\1.1_Inverse_Transform_Sampling\plots\Figure_1.png)
 
-Runtime Comparison
+### Runtime Comparison
 
 - **Python**: (2.19) seconds.
 - **Cython**: (1.74) seconds, showing improved efficiency through compilation optimizations.
