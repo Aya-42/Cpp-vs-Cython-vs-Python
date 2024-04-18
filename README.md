@@ -69,11 +69,11 @@ Profiling showed integration to be the most time-consuming process, with error c
 
 The objective is to explore the chaotic behavior and bifurcation in the logistic map. The task involves iterating the logistic map for a range of values to observe the transition from stability to chaos, characterized by fixed points, periodic orbits, and chaotic regions. The bifurcation diagram (Figure 5) should visually present how, as the parameter ( r ) varies, the system transitions from order to chaos. As the parameter r increases, the logistic map evolves from steady-state fixed points to periodic cycles and then to chaotic behavior.
 
-<img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.4_Nonlinear_Dynamics/plots/bifurcation_data_c_bifurcation.png" title="" alt="" data-align="center">
+[.](1.4_Nonlinear_Dynamics/plots/bifurcation_data_py_bifurcation.png "Figure (5)")
 
 Figure (6) shows a plot of the Lyapunov exponent across a range of ( r ) values. It moves from negative to positive at approximately 3.5, marking the onset of chaos.
 
-<img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.4_Nonlinear_Dynamics/plots/lyapunov_data_cy_lyapunov.png" title="" alt="" data-align="center">
+[.](1.4_Nonlinear_Dynamics/plots/lyapunov_data_py_lyapunov.png "Figure (6)")
 
 ### Runtimes
 
@@ -96,7 +96,8 @@ Profiling indicates that the iterative nature of the logistic map is the primary
 
 ## 1.6: Implicit ODE Solver
 
-The aim is to implement and examine the backward Euler method as an implicit solver for the exponential decay ODE. This problem evaluates the method's stability and accuracy, particularly in handling stiff ODEs. The figure would show a curve depicting how the relative error in the numerical solution of an ODE at t=16 changes with decreasing time step sizes on a logarithmic scale. Smaller time steps, resulting from larger n values, should correlate with reduced error, indicating higher numerical accuracy. The slope of the curve on this log-log plot can reveal the order of accuracy of the backward Euler method: a steeper slope suggests a higher-order accuracy. As n increases, we'd expect the curve to flatten out as the method reaches its limit of precision given the machine's floating-point arithmetic.<img src="file:///D:/Google%20Drive/2.T/.HPC/C++%20vs%20Cython%20vs%20Python/1.6_Implicit_ODE_Solver/plots/Figure_1.png" title="" alt="" data-align="center">
+The aim is to implement and examine the backward Euler method as an implicit solver for the exponential decay ODE. This problem evaluates the method's stability and accuracy, particularly in handling stiff ODEs. The figure would show a curve depicting how the relative error in the numerical solution of an ODE at t=16 changes with decreasing time step sizes on a logarithmic scale. Smaller time steps, resulting from larger n values, should correlate with reduced error, indicating higher numerical accuracy. The slope of the curve on this log-log plot can reveal the order of accuracy of the backward Euler method: a steeper slope suggests a higher-order accuracy. As n increases, we'd expect the curve to flatten out as the method reaches its limit of precision given the machine's floating-point arithmetic.
+[.](1.6_Implicit_ODE_Solver/plots/Figure_1.png "Figure (7)")
 
 The time step (∆t) directly affects solution accuracy in the backward Euler method, with smaller steps yielding more precise results. Larger ∆t can compromise accuracy but maintains stability, making this method reliable for stiff ODEs where smaller steps are not computationally feasible.
 
