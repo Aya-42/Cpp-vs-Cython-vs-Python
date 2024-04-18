@@ -97,6 +97,7 @@ Profiling indicates that the iterative nature of the logistic map is the primary
 ## 1.6: Implicit ODE Solver
 
 The aim is to implement and examine the backward Euler method as an implicit solver for the exponential decay ODE. This problem evaluates the method's stability and accuracy, particularly in handling stiff ODEs. The figure would show a curve depicting how the relative error in the numerical solution of an ODE at t=16 changes with decreasing time step sizes on a logarithmic scale. Smaller time steps, resulting from larger n values, should correlate with reduced error, indicating higher numerical accuracy. The slope of the curve on this log-log plot can reveal the order of accuracy of the backward Euler method: a steeper slope suggests a higher-order accuracy. As n increases, we'd expect the curve to flatten out as the method reaches its limit of precision given the machine's floating-point arithmetic.
+
 [.](1.6_Implicit_ODE_Solver/plots/Figure_1.png "Figure (7)")
 
 The time step (∆t) directly affects solution accuracy in the backward Euler method, with smaller steps yielding more precise results. Larger ∆t can compromise accuracy but maintains stability, making this method reliable for stiff ODEs where smaller steps are not computationally feasible.
